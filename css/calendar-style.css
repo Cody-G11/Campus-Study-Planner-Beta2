@@ -918,3 +918,42 @@ footer {
   color: #666666;
   text-align: center;
 }
+
+.box .filter-control {
+  position: absolute;
+  top: 378px;
+  left: 560px;
+  width: 170px;
+  height: 36px;
+  border: 2px solid #000000;
+  border-radius: 6px;
+  background-color: #ffffff;
+  font-family: "Jersey 10", Helvetica;
+  font-size: 18px;
+  color: #000000;
+  line-height: 32px;
+  text-align: center;
+  cursor: pointer;
+}
+
+.box .card-btn {
+  position: absolute;
+  top: 20px;
+  right: 14px;
+  width: 64px;
+  height: 30px;
+  border: 2px solid #000000;
+  border-radius: 6px;
+  background-color: #ffffff;
+  font-family: "Jersey 10", Helvetica;
+  font-size: 16px;
+  color: #000000;
+  text-align: center;
+  line-height: 26px;
+  cursor: pointer;
+}
+
+.box .card-btn:hover,
+.box .filter-control:hover {
+  background-color: #f0f0f0;
+}
