@@ -1,16 +1,17 @@
+<!-- Cody G. wrote this file -->
 
     <!DOCTYPE html>
 <html>
 <head>
 <meta name="viewport" content="width=device-width, initial-scale=1"/>
 <meta charset="utf-8" />
-<link rel="stylesheet" href="globals.css">
-<link rel="stylesheet" href="style.css">
+<link rel="stylesheet" href="css/calendar-globals.css">
+<link rel="stylesheet" href="css/calendar-style.css">
 </head>
 <body>
 <div class="box" ><div class="group" ><div class="cody-gayle-schedule" ><header>
 <div class="rectangle" ></div>
-<img class="image" src="ttu-logo.png" alt="Texas Tech Red Raiders logo" />
+<img class="image" src="images/ttu-logo.png" alt="Texas Tech Red Raiders logo" />
 <nav aria-label="Main navigation">
 <a class="text-wrapper" href="questionnaire.html">Questionnaire</a>
 <a class="div" href="#">Log Out</a>
@@ -57,10 +58,10 @@
 <div class="text-wrapper-17" >2</div>
 <div class="text-wrapper-18" >3</div>
 <div class="text-wrapper-19" >28</div>
-<div class="group-3" ><div class="rectangle-10" ></div>
-<div class="rectangle-11" ></div>
-<div class="text-wrapper-20" >+ Add Class</div>
-<div class="text-wrapper-21" >+ Exam</div></div>
+<div class="group-3" ><button class="rectangle-10" type="button" id="addClassBtn" aria-haspopup="dialog">
+<span class="text-wrapper-20" >+ Add Class</span></button>
+<button class="rectangle-11" type="button" id="addExamBtn" aria-haspopup="dialog">
+<span class="text-wrapper-21" >+ Exam</span></button></div>
 <div class="line-2" ></div>
 <p class="p" >Hey Cody, here’s whats coming up!</p>
 <div class="text-wrapper-22" >Today</div>
@@ -102,8 +103,67 @@
 <div class="group-11" ><div class="rectangle-15" ></div>
 <div class="text-wrapper-29" >Career Fair<br/>Next Mon.</div></div>
 </main></div></div></div>
+<section class="added-items" id="addedItems" aria-live="polite" aria-label="Items you have added"></section>
 <footer>
 <p>&copy; 2026 Campus Study Planner — Team Beta 2</p>
 </footer>
+
+<dialog id="quickAddDialog">
+<form method="dialog" id="quickAddForm">
+<h2 id="quickAddTitle">Add Class</h2>
+<label for="quickAddName">Title</label>
+<input type="text" id="quickAddName" name="name" required placeholder="e.g. ENGR 1340 Lecture" />
+<label for="quickAddDetail">Time / Location</label>
+<input type="text" id="quickAddDetail" name="detail" placeholder="e.g. 2:00 - Room 38" />
+<div class="quick-add-actions">
+<button type="submit" value="cancel" formnovalidate class="quick-add-cancel">Cancel</button>
+<button type="submit" value="add" class="quick-add-submit" id="quickAddSubmit">Add</button>
+</div>
+</form>
+</dialog>
+
+<script>
+(function () {
+  var dialog = document.getElementById('quickAddDialog');
+  var title = document.getElementById('quickAddTitle');
+  var nameInput = document.getElementById('quickAddName');
+  var detailInput = document.getElementById('quickAddDetail');
+  var submitBtn = document.getElementById('quickAddSubmit');
+  var list = document.getElementById('addedItems');
+  var kind = 'Class';
+
+  function openDialog(forKind) {
+    kind = forKind;
+    title.textContent = forKind === 'Exam' ? 'Add Exam' : 'Add Class';
+    submitBtn.textContent = forKind === 'Exam' ? 'Add Exam' : 'Add Class';
+    nameInput.value = '';
+    detailInput.value = '';
+    dialog.showModal();
+    nameInput.focus();
+  }
+
+  document.getElementById('addClassBtn').addEventListener('click', function () {
+    openDialog('Class');
+  });
+  document.getElementById('addExamBtn').addEventListener('click', function () {
+    openDialog('Exam');
+  });
+
+  dialog.addEventListener('close', function () {
+    if (dialog.returnValue !== 'add') return;
+    var name = nameInput.value.trim();
+    if (!name) return;
+    var detail = detailInput.value.trim();
+    var row = document.createElement('div');
+    row.className = 'added-item';
+    row.innerHTML = '<span class="added-item-kind">' + kind + '</span>' +
+      '<span class="added-item-name"></span>' +
+      (detail ? '<span class="added-item-detail"></span>' : '');
+    row.querySelector('.added-item-name').textContent = name;
+    if (detail) row.querySelector('.added-item-detail').textContent = detail;
+    list.appendChild(row);
+  });
+})();
+</script>
 </body>
 </html>
