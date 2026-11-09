@@ -1,0 +1,866 @@
+<!DOCTYPE html>
+<html lang="en">
+
+<head>
+    <meta charset="UTF-8">
+    <meta name="viewport" content="width=device-width, initial-scale=1.0">
+
+    <title>Texas Tech Study Groups</title>
+
+    <style>
+
+        * {
+            box-sizing: border-box;
+        }
+
+        body {
+            margin: 0;
+            font-family: Arial, sans-serif;
+            background: white;
+            color: black;
+        }
+
+        /* MAIN PAGE LAYOUT */
+
+        .page {
+            display: grid;
+            grid-template-columns: 126px minmax(0, 1fr) 160px;
+            min-height: 100vh;
+            border: 1px solid black;
+        }
+
+        /* LEFT SIDEBAR */
+
+        .sidebar {
+            border-right: 1px solid #999;
+            display: flex;
+            flex-direction: column;
+            min-height: 100vh;
+        }
+
+        /* TEXAS TECH LOGO */
+
+        .logo {
+            height: 110px;
+            display: flex;
+            align-items: center;
+            justify-content: center;
+            border-bottom: 1px solid #999;
+            flex-shrink: 0;
+        }
+
+        .ttu-logo {
+            width: 85px;
+            height: 85px;
+            object-fit: contain;
+        }
+
+        /* SIDEBAR BUTTONS */
+
+        .side-link {
+            display: flex;
+            align-items: center;
+            justify-content: center;
+            gap: 9px;
+            flex: 1;
+            min-height: 85px;
+            padding: 10px 8px;
+            font-size: 13px;
+            cursor: pointer;
+            border-bottom: 1px solid #eeeeee;
+        }
+
+        .side-link:hover {
+            background: #eeeeee;
+        }
+
+        .side-icon {
+            font-size: 32px;
+        }
+
+        /* CENTER CONTENT */
+
+        .main-content {
+            padding: 18px 14px;
+            min-width: 0;
+            min-height: 100vh;
+            display: flex;
+            flex-direction: column;
+        }
+
+        /* TOP NAVIGATION */
+
+        .top-navigation {
+            display: flex;
+            justify-content: center;
+            gap: 25px;
+            margin-bottom: 16px;
+        }
+
+        .top-navigation a {
+            text-decoration: none;
+            color: black;
+            font-size: 18px;
+            font-weight: bold;
+            cursor: pointer;
+        }
+
+        .top-navigation a:hover {
+            color: #E90802;
+        }
+
+        /* SEARCH BAR */
+
+        .search-bar {
+            border: 1px solid #999;
+            min-height: 51px;
+            display: flex;
+            align-items: center;
+            justify-content: space-around;
+            gap: 5px;
+            padding: 5px;
+            width: 100%;
+        }
+
+        .search-icon {
+            font-size: 27px;
+        }
+
+        .search-bar input {
+            width: 100%;
+            min-width: 55px;
+            border: none;
+            outline: none;
+            font-size: 10px;
+        }
+
+        .search-bar select {
+            border: none;
+            background: white;
+            font-size: 10px;
+            cursor: pointer;
+            max-width: 100px;
+        }
+
+        /* STUDY SCHEDULE DROPDOWN */
+
+        .schedule-dropdown {
+            position: relative;
+        }
+
+        .schedule-button {
+            background: white;
+            border: none;
+            font-size: 10px;
+            cursor: pointer;
+            white-space: nowrap;
+        }
+
+        .schedule-menu {
+            display: none;
+            position: absolute;
+            top: 25px;
+            right: 0;
+            width: 250px;
+            max-height: 300px;
+            background: white;
+            border: 1px solid #888;
+            box-shadow: 0 3px 8px rgba(0,0,0,0.15);
+            z-index: 10;
+            padding: 10px;
+        }
+
+        .schedule-menu.show {
+            display: block;
+        }
+
+        .schedule-menu input {
+            width: 100%;
+            padding: 8px;
+            border: 1px solid #999;
+            font-size: 12px;
+            margin-bottom: 8px;
+        }
+
+        .course-list {
+            max-height: 230px;
+            overflow-y: auto;
+        }
+
+        .course-option {
+            display: block;
+            width: 100%;
+            background: white;
+            border: none;
+            padding: 9px 5px;
+            text-align: left;
+            font-size: 12px;
+            cursor: pointer;
+        }
+
+        .course-option:hover {
+            background: #eeeeee;
+        }
+
+        .selected-course {
+            background: #f2f2f2;
+            font-size: 11px;
+            padding: 6px;
+            margin-bottom: 5px;
+        }
+
+        /* SUGGESTED GROUPS */
+
+        .suggested-groups {
+            margin-top: 148px;
+        }
+
+        .suggested-groups h2 {
+            font-size: 18px;
+            margin-bottom: 23px;
+        }
+
+        .group-container {
+            display: flex;
+            gap: 28px;
+            flex-wrap: wrap;
+        }
+
+        .group-card {
+            border: 1px solid #999;
+            width: 120px;
+            height: 76px;
+            padding: 5px;
+            font-size: 12px;
+            display: flex;
+            flex-direction: column;
+            justify-content: space-between;
+        }
+
+        .group-card p {
+            margin: 0;
+        }
+
+        /* HOME PAGE BUTTON */
+
+        .home-button {
+            display: block;
+            margin: auto auto 0;
+            background: #dddddd;
+            border: none;
+            padding: 8px 20px;
+            font-size: 18px;
+            cursor: pointer;
+        }
+
+        .home-button:hover {
+            background: #bbbbbb;
+        }
+
+        /* UPCOMING SESSIONS */
+
+        .upcoming {
+            padding: 18px 8px;
+            border-left: 1px solid #999;
+        }
+
+        .upcoming h3 {
+            font-size: 16px;
+            font-weight: normal;
+            margin: 0 0 10px;
+            white-space: nowrap;
+        }
+
+        .upcoming ul {
+            padding-left: 22px;
+            margin: 0;
+        }
+
+        .upcoming li {
+            font-size: 16px;
+            margin-bottom: 17px;
+            line-height: 19px;
+        }
+
+        /* SMALLER SCREENS */
+
+        @media (max-width: 650px) {
+
+            .page {
+                grid-template-columns: 95px minmax(0, 1fr);
+            }
+
+            .sidebar {
+                min-height: 100vh;
+            }
+
+            .side-link {
+                flex-direction: column;
+                text-align: center;
+                font-size: 11px;
+            }
+
+            .upcoming {
+                grid-column: 2;
+                border-top: 1px solid #999;
+            }
+
+            .top-navigation {
+                gap: 12px;
+            }
+
+            .top-navigation a {
+                font-size: 14px;
+            }
+
+            .suggested-groups {
+                margin-top: 70px;
+            }
+
+            .home-button {
+                margin-top: auto;
+            }
+
+        }
+
+    </style>
+
+</head>
+
+<body>
+
+<div class="page">
+
+    <!-- LEFT SIDEBAR -->
+
+    <aside class="sidebar">
+
+        <!-- OFFICIAL TEXAS TECH LOGO -->
+
+        <div class="logo">
+
+            <img
+                src="Images/Texas-Tech-Red-Raiders-Logo.png"
+                alt="Texas Tech University Logo"
+                width="115"
+                height="75"
+                
+            >
+
+        </div>
+
+
+        <!-- CALENDAR BUTTON -->
+
+        <div class="side-link" onclick="showPage('Calendar')">
+
+            <span class="side-icon">🗓️</span>
+
+            <span>Calendar</span>
+
+        </div>
+
+
+        <!-- CURRENT GROUPS BUTTON -->
+
+        <div class="side-link" onclick="showPage('Current Groups')">
+
+            <span class="side-icon">👥</span>
+
+            <span>Current Groups</span>
+
+        </div>
+
+
+        <!-- CREATE GROUP BUTTON -->
+
+        <div class="side-link" onclick="createGroup()">
+
+            <span class="side-icon">➕</span>
+
+            <span>Create Group</span>
+
+        </div>
+
+
+        <!-- SETTINGS BUTTON -->
+
+        <div class="side-link" onclick="showPage('Settings')">
+
+            <span class="side-icon">⚙️</span>
+
+            <span>Settings</span>
+
+        </div>
+
+    </aside>
+
+
+    <!-- MAIN CONTENT -->
+
+    <main class="main-content">
+
+
+        <!-- TOP NAVIGATION -->
+
+        <nav class="top-navigation">
+
+            <a href="#" onclick="showPage('Find'); return false;">
+                Find
+            </a>
+
+            <a href="#" onclick="showPage('Study'); return false;">
+                Study
+            </a>
+
+            <a href="#" onclick="showPage('Groups'); return false;">
+                Groups
+            </a>
+
+        </nav>
+
+
+        <!-- SEARCH BAR -->
+
+        <div class="search-bar">
+
+            <span class="search-icon">🔍</span>
+
+            <input
+                type="text"
+                id="searchInput"
+                placeholder="Search Study Groups"
+                oninput="searchGroups()"
+            >
+
+
+            <!-- COURSES FILTER -->
+
+            <select id="courseSelect" onchange="searchGroups()">
+
+                <option value="">Courses ▼</option>
+
+                <option value="ENGR">Engineering</option>
+
+                <option value="CHEM">Chemistry</option>
+
+                <option value="MATH">Math</option>
+
+                <option value="HIST">History</option>
+
+                <option value="PHYS">Physics</option>
+
+            </select>
+
+
+            <!-- STUDY SCHEDULE DROPDOWN -->
+
+            <div class="schedule-dropdown">
+
+                <button
+                    class="schedule-button"
+                    onclick="toggleSchedule()"
+                >
+
+                    Study Schedule ▼
+
+                </button>
+
+
+                <div class="schedule-menu" id="scheduleMenu">
+
+                    <input
+                        type="text"
+                        id="courseSearch"
+                        placeholder="Search Texas Tech classes..."
+                        oninput="filterCourses()"
+                    >
+
+
+                    <div class="selected-course" id="selectedCourse">
+
+                        Select a course to view its study groups.
+
+                    </div>
+
+
+                    <div class="course-list" id="courseList">
+
+                    </div>
+
+                </div>
+
+            </div>
+
+        </div>
+
+
+        <!-- SUGGESTED GROUPS -->
+
+        <section class="suggested-groups">
+
+            <h2>Suggested Groups:</h2>
+
+
+            <div class="group-container" id="groupContainer">
+
+
+                <!-- GROUP 1 -->
+
+                <div class="group-card" data-course="ENGR">
+
+                    <p>ENGR-1340-014</p>
+
+                    <p>Library</p>
+
+                    <p>Monday 6:30pm</p>
+
+                </div>
+
+
+                <!-- GROUP 2 -->
+
+                <div class="group-card" data-course="CHEM">
+
+                    <p>CHEM-1307-005</p>
+
+                    <p>Murray Hall</p>
+
+                    <p>Wednesday 7:00pm</p>
+
+                </div>
+
+
+                <!-- GROUP 3 -->
+
+                <div class="group-card" data-course="MATH">
+
+                    <p>MATH-1320-001</p>
+
+                    <p>Library</p>
+
+                    <p>Tuesday 5:00pm</p>
+
+                </div>
+
+
+                <!-- GROUP 4 -->
+
+                <div class="group-card" data-course="HIST">
+
+                    <p>HIST-2300-001</p>
+
+                    <p>Student Union</p>
+
+                    <p>Thursday 6:00pm</p>
+
+                </div>
+
+
+            </div>
+
+        </section>
+
+
+        <!-- HOME PAGE BUTTON AT BOTTOM -->
+
+        <button
+            class="home-button"
+            onclick="showPage('Home Page')"
+        >
+
+            Home Page
+
+        </button>
+
+
+    </main>
+
+
+    <!-- UPCOMING SESSIONS SIDEBAR -->
+
+    <aside class="upcoming">
+
+        <h3>Upcoming Sessions</h3>
+
+
+        <ul>
+
+            <li>
+
+                HIST-2300<br>
+
+                Friday Oct. 9,<br>
+
+                8:00pm
+
+            </li>
+
+
+            <li>
+
+                MATH-1320<br>
+
+                Tuesday<br>
+
+                Oct. 13, 5:30pm
+
+            </li>
+
+        </ul>
+
+    </aside>
+
+
+</div>
+
+
+<!-- JAVASCRIPT -->
+
+<script>
+
+
+    // TEXAS TECH COURSE LIST
+    // These are sample courses.
+    // Add the remaining official courses here.
+
+    const texasTechCourses = [
+
+        {
+            code: "ENGR-1340",
+            name: "Introduction to Engineering"
+        },
+
+        {
+            code: "CHEM-1307",
+            name: "Chemistry"
+        },
+
+        {
+            code: "MATH-1320",
+            name: "College Algebra"
+        },
+
+        {
+            code: "HIST-2300",
+            name: "History"
+        },
+
+        {
+            code: "PHYS-1408",
+            name: "General Physics"
+        },
+
+        {
+            code: "ENGL-1301",
+            name: "English Composition"
+        },
+
+        {
+            code: "BIOL-1401",
+            name: "Biology"
+        },
+
+        {
+            code: "CS-1412",
+            name: "Computer Science"
+        }
+
+    ];
+
+
+    // DISPLAY COURSES
+
+    function displayCourses(courses) {
+
+        const courseList =
+            document.getElementById("courseList");
+
+        courseList.innerHTML = "";
+
+
+        if (courses.length === 0) {
+
+            courseList.innerHTML = "<p>No courses found.</p>";
+
+            return;
+
+        }
+
+
+        courses.forEach(function(course) {
+
+            const button = document.createElement("button");
+
+            button.className = "course-option";
+
+            button.textContent =
+                course.code + " - " + course.name;
+
+
+            button.onclick = function() {
+
+                selectCourse(course);
+
+            };
+
+
+            courseList.appendChild(button);
+
+        });
+
+    }
+
+
+    // OPEN AND CLOSE STUDY SCHEDULE
+
+    function toggleSchedule() {
+
+        const menu =
+            document.getElementById("scheduleMenu");
+
+        menu.classList.toggle("show");
+
+
+        if (menu.classList.contains("show")) {
+
+            document.getElementById("courseSearch").value = "";
+
+            displayCourses(texasTechCourses);
+
+        }
+
+    }
+
+
+    // SEARCH TEXAS TECH COURSES
+
+    function filterCourses() {
+
+        const search =
+            document.getElementById("courseSearch")
+            .value.toLowerCase();
+
+
+        const filteredCourses = texasTechCourses.filter(
+            function(course) {
+
+                return course.code.toLowerCase().includes(search) ||
+
+                       course.name.toLowerCase().includes(search);
+
+            }
+        );
+
+
+        displayCourses(filteredCourses);
+
+    }
+
+
+    // SELECT A COURSE
+
+    function selectCourse(course) {
+
+        document.getElementById("selectedCourse").textContent =
+
+            "Selected: " + course.code;
+
+
+        document.getElementById("scheduleMenu")
+            .classList.remove("show");
+
+
+        document.getElementById("searchInput").value = course.code;
+
+
+        searchGroups();
+
+    }
+
+
+    // SEARCH STUDY GROUPS
+
+    function searchGroups() {
+
+        const search =
+            document.getElementById("searchInput")
+            .value.toLowerCase();
+
+
+        const course =
+            document.getElementById("courseSelect").value;
+
+
+        const cards =
+            document.querySelectorAll(".group-card");
+
+
+        cards.forEach(function(card) {
+
+            const text = card.textContent.toLowerCase();
+
+            const cardCourse = card.dataset.course;
+
+
+            const matchesSearch = text.includes(search);
+
+
+            const matchesCourse =
+                course === "" || cardCourse === course;
+
+
+            if (matchesSearch && matchesCourse) {
+
+                card.style.display = "flex";
+
+            } else {
+
+                card.style.display = "none";
+
+            }
+
+        });
+
+    }
+
+
+    // CREATE GROUP BUTTON
+
+    function createGroup() {
+
+        const groupName = prompt(
+            "Enter the course or name of your new study group:"
+        );
+
+
+        if (groupName) {
+
+            alert(
+                "Your group " + groupName +
+                " is ready to be created!"
+            );
+
+        }
+
+    }
+
+
+    // NAVIGATION BUTTONS
+
+    function showPage(page) {
+
+        alert("Opening " + page + " page!");
+
+    }
+
+
+    // LOAD COURSES WHEN WEBSITE OPENS
+
+    displayCourses(texasTechCourses);
+
+
+</script>
+
+</body>
+</html>
