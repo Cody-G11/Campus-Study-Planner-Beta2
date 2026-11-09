@@ -9,8 +9,8 @@
 | **Problem It Solves** | College students juggle class schedules, assignment deadlines, exams, and campus activities across too many separate apps. Campus Study Planner puts a student's weekly schedule, upcoming deadlines, study groups, and campus events in one place so nothing gets missed. |
 | **Page 1 — Name & Description** | Home Page (`index.html`) — landing page and app overview. *Owner: Miles* |
 | **Page 2 — Name & Description** | Calendar (`calendar.html`) — weekly grid view of classes and events, with a "Today" schedule and an upcoming-deadlines panel. *Owner: Cody* |
-| **Page 3 — Name & Description** | Study Groups (`study-groups.html`) — browse and join student study groups. *Owner: Brayden* |
-| **Page 4 — Name & Description** | Campus Life (`campus-life.html`) — campus map, events, and evaluations. *Owner: Chrishaud* |
+| **Page 3 — Name & Description** | Study Groups (`study-groups.html`) — browse and join student study groups. *Owner: Chrishaud* |
+| **Page 4 — Name & Description** | Campus Life (`campus-life.html`) — campus map, events, and evaluations. *Owner: Brayden* |
 | **Page 5 — Name & Description** | Questionnaire (`questionnaire.html`) — onboarding questionnaire for new users. *Owner: Jeovani* |
 | **Key Interactive Feature 1** | Calendar day cells show color-coded dots for scheduled events |
 | **Key Interactive Feature 2** | "+ Add Class" / "+ Exam" buttons for adding new calendar entries |
