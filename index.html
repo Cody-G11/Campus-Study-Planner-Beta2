@@ -23,11 +23,11 @@
       </a>
 
       <a class="miles-div" href="#">
-        <div class="rectangle-2"></div>
+        <div class="miles-rectangle-2"></div>
         <div class="miles-text-wrapper-2">Contact us</div>
       </a>
 
-      <a class="miles-group-2" href="study-group.html">
+      <a class="miles-group-2" href="study-groups.html">
         <div class="miles-rectangle-3"></div>
         <div class="miles-study-groups">Study Groups</div>
       </a>
@@ -36,11 +36,11 @@
         <div class="miles-text-wrapper-5">Campus life</div>
       </a>
 
-      <div class="rectangle-4"></div>
-      <div class="text-wrapper-6">R</div>
-      <div class="text-wrapper-7">aider Study Partner</div>
+      <div class="miles-rectangle-4"></div>
+      <div class="miles-text-wrapper-6">R</div>
+      <div class="miles-text-wrapper-7">aider Study Partner</div>
 
-      <h1 class="find-your-study">
+      <h1 class="miles-find-your-study">
         Find your study<br />group before the<br />exam finds you
       </h1>
 
@@ -48,25 +48,25 @@
        
 
 
-      <p class="p">
+      <p class="miles-p">
         Search by the course you’re taking and join Red Raiders studying the
         same material on campus or online!
       </p>
 
       <form id="searchForm" autocomplete="off">
-        <div class="rectangle-5"></div>
+        <div class="miles-rectangle-5"></div>
         <input
-          class="text-wrapper-9"
+          class="miles-text-wrapper-9"
           id="courseInput"
           type="text"
           placeholder="Type your course here...."
           aria-label="Course name"
         />
-        <button class="group-4" type="submit">Search here</button>
+        <button class="miles-group-4" type="submit">Search here</button>
       </form>
 
-      <p class="search-error" id="error" role="alert"></p>
-      <section class="results" id="results" aria-live="polite"></section>
+      <p class="miles-search-error" id="error" role="alert"></p>
+      <section class="miles-results" id="results" aria-live="polite"></section>
 
     </div>
   </div>
@@ -109,9 +109,9 @@
       const safe = escapeHtml(course.toUpperCase());
 
       results.innerHTML =
-        '<h2 class="results-title">Study groups for ' + safe + "</h2>" +
-        '<div class="group-card"><div>' + safe + " Exam Prep<small>Tue/Thu 6:00 PM · Library, 2nd floor</small></div><button type=\"button\">Join</button></div>" +
-        '<div class="group-card"><div>' + safe + " Online Review<small>Sundays 8:00 PM · Zoom</small></div><button type=\"button\">Join</button></div>";
+        '<h2 class="miles-results-title">Study groups for ' + safe + "</h2>" +
+        '<div class="miles-group-card"><div>' + safe + " Exam Prep<small>Tue/Thu 6:00 PM · Library, 2nd floor</small></div><button type=\"button\">Join</button></div>" +
+        '<div class="miles-group-card"><div>' + safe + " Online Review<small>Sundays 8:00 PM · Zoom</small></div><button type=\"button\">Join</button></div>";
     });
   </script>
 </body>
