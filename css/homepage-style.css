@@ -29,7 +29,7 @@ a {
 
 /* ---------- Nav buttons ---------- */
 
-.miles-clark-homepage .group {
+.miles-clark-homepage .miles-group {
   position: absolute;
   top: 113px;
   left: 1191px;
@@ -37,7 +37,7 @@ a {
   height: 74px;
 }
 
-.miles-clark-homepage .rectangle {
+.miles-clark-homepage .miles-rectangle {
   top: 0;
   left: 0;
   width: 244px;
@@ -47,7 +47,7 @@ a {
   border-radius: 12px;
 }
 
-.miles-clark-homepage .schedule {
+.miles-clark-homepage .miles-schedule {
   position: absolute;
   top: 14px;
   left: 21px;
@@ -60,7 +60,7 @@ a {
   line-height: normal;
 }
 
-.miles-clark-homepage .div {
+.miles-clark-homepage .miles-div {
   position: absolute;
   top: 22px;
   left: 956px;
@@ -68,7 +68,7 @@ a {
   height: 81px;
 }
 
-.miles-clark-homepage .rectangle-2 {
+.miles-clark-homepage .miles-rectangle-2 {
   top: 0;
   left: 1px;
   width: 226px;
@@ -78,7 +78,7 @@ a {
   border-radius: 12px;
 }
 
-.miles-clark-homepage .text-wrapper-2 {
+.miles-clark-homepage .miles-text-wrapper-2 {
   position: absolute;
   top: 14px;
   left: 31px;
@@ -91,7 +91,7 @@ a {
   line-height: normal;
 }
 
-.miles-clark-homepage .group-2 {
+.miles-clark-homepage .miles-group-2 {
   position: absolute;
   top: 22px;
   left: 703px;
@@ -99,7 +99,7 @@ a {
   height: 81px;
 }
 
-.miles-clark-homepage .rectangle-3 {
+.miles-clark-homepage .miles-rectangle-3 {
   top: 0;
   left: 0;
   width: 244px;
@@ -109,7 +109,7 @@ a {
   border-radius: 12px;
 }
 
-.miles-clark-homepage .study-groups {
+.miles-clark-homepage .miles-study-groups {
   position: absolute;
   top: 14px;
   left: 9px;
@@ -122,7 +122,7 @@ a {
   line-height: normal;
 }
 
-.miles-clark-homepage .group-3 {
+.miles-clark-homepage .miles-group-3 {
   position: absolute;
   top: 22px;
   left: 1191px;
@@ -132,7 +132,7 @@ a {
   border-radius: 12px;
 }
 
-.miles-clark-homepage .text-wrapper-5 {
+.miles-clark-homepage .miles-text-wrapper-5 {
   position: absolute;
   top: 18px;
   left: 21px;
@@ -147,7 +147,7 @@ a {
 
 /* ---------- Logo ---------- */
 
-.miles-clark-homepage .rectangle-4 {
+.miles-clark-homepage .miles-rectangle-4 {
   top: 28px;
   left: 17px;
   width: 87px;
@@ -157,7 +157,7 @@ a {
   border-radius: 12px;
 }
 
-.miles-clark-homepage .text-wrapper-6 {
+.miles-clark-homepage .miles-text-wrapper-6 {
   position: absolute;
   top: 30px;
   left: 49px;
@@ -171,7 +171,7 @@ a {
   white-space: nowrap;
 }
 
-.miles-clark-homepage .text-wrapper-7 {
+.miles-clark-homepage .miles-text-wrapper-7 {
   position: absolute;
   top: 34px;
   left: 104px;
@@ -186,7 +186,7 @@ a {
 
 /* ---------- Hero ---------- */
 
-.miles-clark-homepage .find-your-study {
+.miles-clark-homepage .miles-find-your-study {
   position: absolute;
   top: 226px;
   left: 37px;
@@ -210,7 +210,7 @@ a {
   object-fit: cover;
 }
 
-.miles-clark-homepage .p {
+.miles-clark-homepage .miles-p {
   position: absolute;
   top: 622px;
   left: 37px;
@@ -226,7 +226,7 @@ a {
 
 /* ---------- Search bar ---------- */
 
-.miles-clark-homepage .rectangle-5 {
+.miles-clark-homepage .miles-rectangle-5 {
   top: 738px;
   left: 45px;
   width: 895px;
@@ -237,12 +237,12 @@ a {
   border-radius: 12px;
 }
 
-.miles-clark-homepage .rectangle-5:focus-within {
+.miles-clark-homepage .miles-rectangle-5:focus-within {
   border-color: var(--pink);
   box-shadow: 0 0 0 4px rgba(214, 48, 79, 0.25);
 }
 
-.miles-clark-homepage .text-wrapper-9 {
+.miles-clark-homepage .miles-text-wrapper-9 {
   position: absolute;
   top: 754px;
   left: 61px;
@@ -260,12 +260,12 @@ a {
   line-height: normal;
 }
 
-.miles-clark-homepage .text-wrapper-9::placeholder {
+.miles-clark-homepage .miles-text-wrapper-9::placeholder {
   color: var(--black);
   opacity: 1;
 }
 
-.miles-clark-homepage .group-4 {
+.miles-clark-homepage .miles-group-4 {
   position: absolute;
   top: 754px;
   left: 720px;
@@ -285,11 +285,11 @@ a {
   cursor: pointer;
 }
 
-.miles-clark-homepage .group-4:hover {
+.miles-clark-homepage .miles-group-4:hover {
   filter: brightness(0.9);
 }
 
-.miles-clark-homepage .search-error {
+.miles-clark-homepage .miles-search-error {
   position: absolute;
   top: 836px;
   left: 45px;
@@ -301,14 +301,14 @@ a {
 
 /* ---------- Results ---------- */
 
-.miles-clark-homepage .results {
+.miles-clark-homepage .miles-results {
   position: absolute;
   top: 880px;
   left: 45px;
   width: 895px;
 }
 
-.miles-clark-homepage .results-title {
+.miles-clark-homepage .miles-results-title {
   margin: 0 0 16px;
   font-family: "Fjalla One", Helvetica, sans-serif;
   font-weight: 400;
@@ -316,7 +316,7 @@ a {
   color: var(--red);
 }
 
-.miles-clark-homepage .group-card {
+.miles-clark-homepage .miles-group-card {
   display: flex;
   justify-content: space-between;
   align-items: center;
@@ -328,14 +328,14 @@ a {
   font-size: 24px;
 }
 
-.miles-clark-homepage .group-card small {
+.miles-clark-homepage .miles-group-card small {
   display: block;
   margin-top: 4px;
   font-size: 20px;
   color: var(--muted);
 }
 
-.miles-clark-homepage .group-card button {
+.miles-clark-homepage .miles-group-card button {
   padding: 12px 28px;
   border: none;
   border-radius: 8px;
