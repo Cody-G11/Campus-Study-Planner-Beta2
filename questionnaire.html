@@ -1,0 +1,197 @@
+<!DOCTYPE html>
+<html lang="en">
+<head>
+  <meta charset="UTF-8">
+  <meta name="viewport" content="width=device-width, initial-scale=1.0">
+  <title>Personalized Study Schedule | Campus Study Planner</title>
+  <link rel="stylesheet" href="css/jiovanni-style.css">
+</head>
+<body class="jiovanni-body">
+
+  <!-- Header -->
+  <header class="jiovanni-header">
+    <div class="jiovanni-header-container">
+      <div class="jiovanni-logo-group">
+        <a href="index.html" class="jiovanni-logo-badge">CSP</a>
+        <div>
+          <h1 class="jiovanni-site-title">Campus Study Planner</h1>
+          <p class="jiovanni-site-subtitle">Texas Tech University</p>
+        </div>
+      </div>
+      <nav class="jiovanni-nav">
+        <a href="index.html" class="jiovanni-nav-link">Home</a>
+        <a href="calendar.html" class="jiovanni-nav-link">Calendar</a>
+        <a href="study-groups.html" class="jiovanni-nav-link">Study Groups</a>
+        <a href="campus-life.html" class="jiovanni-nav-link">Campus Life</a>
+        <a href="questionnaire.html" class="jiovanni-nav-link jiovanni-nav-active">Questionnaire</a>
+      </nav>
+    </div>
+  </header>
+
+  <!-- Main Content Container -->
+  <main class="jiovanni-main">
+    
+    <!-- Hero / Intro Banner -->
+    <section class="jiovanni-hero-card">
+      <h2 class="jiovanni-hero-title">Build Your Personalized Study Schedule</h2>
+      <p class="jiovanni-hero-desc">
+        Balance your study sessions around your classes, exams, and daily campus life. Fill out your preferences below to generate your tailored weekly study plan.
+      </p>
+    </section>
+
+    <!-- Questionnaire Form -->
+    <form class="jiovanni-form-card" id="jiovanni-schedule-form">
+      
+      <!-- Section 1: Course & Exam Info -->
+      <div class="jiovanni-form-section">
+        <h3 class="jiovanni-section-heading">1. Courses & Upcoming Exams</h3>
+        
+        <div class="jiovanni-form-row">
+          <div class="jiovanni-form-group">
+            <label class="jiovanni-label" for="jiovanni-course-select">Primary Course Focus</label>
+            <select class="jiovanni-select" id="jiovanni-course-select" required>
+              <option value="" disabled selected>Select a course...</option>
+              <option value="ENGR 1340">ENGR 1340 - Computational & Problem Solving</option>
+              <option value="MATH 1451">MATH 1451 - Calculus I</option>
+              <option value="PHYS 1408">PHYS 1408 - Principles of Physics I</option>
+              <option value="CHEM 1307">CHEM 1307 - Principles of Chemistry I</option>
+            </select>
+          </div>
+
+          <div class="jiovanni-form-group">
+            <label class="jiovanni-label" for="jiovanni-exam-date">Next Exam / Target Date</label>
+            <input class="jiovanni-input" type="date" id="jiovanni-exam-date" required>
+          </div>
+        </div>
+      </div>
+
+      <!-- Section 2: Study Availability -->
+      <div class="jiovanni-form-section">
+        <h3 class="jiovanni-section-heading">2. Daily Study Capacity & Timing</h3>
+        
+        <div class="jiovanni-form-group">
+          <label class="jiovanni-label">Target Daily Study Time</label>
+          <div class="jiovanni-pill-group">
+            <label class="jiovanni-pill-label">
+              <input type="radio" name="study_hours" value="1" class="jiovanni-radio">
+              <span>1 Hour / Day</span>
+            </label>
+            <label class="jiovanni-pill-label">
+              <input type="radio" name="study_hours" value="2" class="jiovanni-radio" checked>
+              <span>2 Hours / Day</span>
+            </label>
+            <label class="jiovanni-pill-label">
+              <input type="radio" name="study_hours" value="3" class="jiovanni-radio">
+              <span>3 Hours / Day</span>
+            </label>
+            <label class="jiovanni-pill-label">
+              <input type="radio" name="study_hours" value="4" class="jiovanni-radio">
+              <span>4+ Hours / Day</span>
+            </label>
+          </div>
+        </div>
+
+        <div class="jiovanni-form-group">
+          <label class="jiovanni-label">Preferred Study Windows (Select all that apply)</label>
+          <div class="jiovanni-checkbox-grid">
+            <label class="jiovanni-check-label">
+              <input type="checkbox" checked class="jiovanni-checkbox">
+              <span>Morning (8:00 AM – 12:00 PM)</span>
+            </label>
+            <label class="jiovanni-check-label">
+              <input type="checkbox" checked class="jiovanni-checkbox">
+              <span>Afternoon (1:00 PM – 5:00 PM)</span>
+            </label>
+            <label class="jiovanni-check-label">
+              <input type="checkbox" class="jiovanni-checkbox">
+              <span>Evening (6:00 PM – 9:00 PM)</span>
+            </label>
+            <label class="jiovanni-check-label">
+              <input type="checkbox" class="jiovanni-checkbox">
+              <span>Late Night (9:00 PM – 12:00 AM)</span>
+            </label>
+          </div>
+        </div>
+      </div>
+
+      <!-- Section 3: Study Format -->
+      <div class="jiovanni-form-section">
+        <h3 class="jiovanni-section-heading">3. Study Session Preferences</h3>
+        
+        <div class="jiovanni-form-group">
+          <label class="jiovanni-label">Session Style</label>
+          <div class="jiovanni-pill-group">
+            <label class="jiovanni-pill-label">
+              <input type="radio" name="study_style" value="pomodoro" class="jiovanni-radio" checked>
+              <span>Pomodoro (50m study / 10m break)</span>
+            </label>
+            <label class="jiovanni-pill-label">
+              <input type="radio" name="study_style" value="deepwork" class="jiovanni-radio">
+              <span>Deep Work (90m block)</span>
+            </label>
+            <label class="jiovanni-pill-label">
+              <input type="radio" name="study_style" value="review" class="jiovanni-radio">
+              <span>Quick Review (30m block)</span>
+            </label>
+          </div>
+        </div>
+
+        <label class="jiovanni-check-label jiovanni-buffer-check">
+          <input type="checkbox" checked class="jiovanni-checkbox">
+          <span>Automatically leave a 1-hour buffer before and after scheduled classes</span>
+        </label>
+      </div>
+
+      <button type="submit" class="jiovanni-submit-btn">
+        Generate My Study Schedule
+      </button>
+    </form>
+
+    <!-- Schedule Results Preview -->
+    <section class="jiovanni-results-card" id="jiovanni-results" style="display: none;">
+      <div class="jiovanni-results-header">
+        <h3 class="jiovanni-results-title">Your Generated Weekly Schedule</h3>
+        <span class="jiovanni-badge">Active Plan</span>
+      </div>
+
+      <div class="jiovanni-schedule-grid">
+        <div class="jiovanni-day-card">
+          <h4 class="jiovanni-day-title">Monday</h4>
+          <div class="jiovanni-block jiovanni-block-class">10:00 AM – 10:50 AM • ENGR 1340 Lecture</div>
+          <div class="jiovanni-block jiovanni-block-study">2:00 PM – 3:30 PM • Problem Set Review (90m)</div>
+        </div>
+        <div class="jiovanni-day-card">
+          <h4 class="jiovanni-day-title">Tuesday</h4>
+          <div class="jiovanni-block jiovanni-block-class">11:00 AM – 12:20 PM • MATH 1451 Lecture</div>
+          <div class="jiovanni-block jiovanni-block-study">4:00 PM – 5:30 PM • Calculus Practice Exam (90m)</div>
+        </div>
+        <div class="jiovanni-day-card">
+          <h4 class="jiovanni-day-title">Wednesday</h4>
+          <div class="jiovanni-block jiovanni-block-class">10:00 AM – 10:50 AM • ENGR 1340 Lecture</div>
+          <div class="jiovanni-block jiovanni-block-study">1:30 PM – 3:00 PM • Code Optimization (90m)</div>
+        </div>
+        <div class="jiovanni-day-card">
+          <h4 class="jiovanni-day-title">Thursday</h4>
+          <div class="jiovanni-block jiovanni-block-class">11:00 AM – 12:20 PM • MATH 1451 Lecture</div>
+          <div class="jiovanni-block jiovanni-block-study">3:00 PM – 4:30 PM • Formula Sheet Prep (90m)</div>
+        </div>
+        <div class="jiovanni-day-card">
+          <h4 class="jiovanni-day-title">Friday</h4>
+          <div class="jiovanni-block jiovanni-block-class">10:00 AM – 10:50 AM • ENGR 1340 Lab</div>
+          <div class="jiovanni-block jiovanni-block-study">1:00 PM – 2:30 PM • Weekly Progress Review (90m)</div>
+        </div>
+      </div>
+    </section>
+
+  </main>
+
+  <script>
+    document.getElementById('jiovanni-schedule-form').addEventListener('submit', function(e) {
+      e.preventDefault();
+      const results = document.getElementById('jiovanni-results');
+      results.style.display = 'block';
+      results.scrollIntoView({ behavior: 'smooth' });
+    });
+  </script>
+</body>
+</html>
