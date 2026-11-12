@@ -1,0 +1,298 @@
+* {
+  box-sizing: border-box;
+  margin: 0;
+  padding: 0;
+}
+
+body.jiovanni-body {
+  font-family: -apple-system, BlinkMacSystemFont, "Segoe UI", Roboto, Helvetica, Arial, sans-serif;
+  background-color: #f8fafc;
+  color: #1e293b;
+  line-height: 1.5;
+}
+
+.jiovanni-header {
+  background-color: #ffffff;
+  border-bottom: 1px solid #e2e8f0;
+  padding: 1rem 1.5rem;
+}
+
+.jiovanni-header-container {
+  max-width: 1000px;
+  margin: 0 auto;
+  display: flex;
+  justify-content: space-between;
+  align-items: center;
+}
+
+.jiovanni-logo-group {
+  display: flex;
+  align-items: center;
+  gap: 0.75rem;
+}
+
+.jiovanni-logo-badge {
+  background-color: #cc0000;
+  color: #ffffff;
+  font-weight: 800;
+  font-size: 1.1rem;
+  padding: 0.4rem 0.6rem;
+  border-radius: 6px;
+  text-decoration: none;
+}
+
+.jiovanni-site-title {
+  font-size: 1.15rem;
+  font-weight: 700;
+  color: #0f172a;
+}
+
+.jiovanni-site-subtitle {
+  font-size: 0.8rem;
+  color: #64748b;
+}
+
+.jiovanni-nav {
+  display: flex;
+  gap: 1.25rem;
+}
+
+.jiovanni-nav-link {
+  text-decoration: none;
+  font-size: 0.95rem;
+  font-weight: 500;
+  color: #475569;
+}
+
+.jiovanni-nav-link:hover,
+.jiovanni-nav-active {
+  color: #cc0000;
+}
+
+.jiovanni-main {
+  max-width: 860px;
+  margin: 2rem auto;
+  padding: 0 1rem;
+}
+
+.jiovanni-hero-card {
+  background: #ffffff;
+  border: 1px solid #e2e8f0;
+  border-left: 5px solid #cc0000;
+  border-radius: 8px;
+  padding: 1.5rem;
+  margin-bottom: 1.5rem;
+}
+
+.jiovanni-hero-title {
+  font-size: 1.5rem;
+  font-weight: 700;
+  color: #0f172a;
+  margin-bottom: 0.5rem;
+}
+
+.jiovanni-hero-desc {
+  color: #475569;
+  font-size: 0.95rem;
+}
+
+.jiovanni-form-card {
+  background: #ffffff;
+  border: 1px solid #e2e8f0;
+  border-radius: 8px;
+  padding: 1.75rem;
+  box-shadow: 0 1px 3px rgba(0, 0, 0, 0.05);
+}
+
+.jiovanni-form-section {
+  padding-bottom: 1.5rem;
+  margin-bottom: 1.5rem;
+  border-bottom: 1px solid #f1f5f9;
+}
+
+.jiovanni-section-heading {
+  font-size: 1.1rem;
+  font-weight: 600;
+  color: #1e293b;
+  margin-bottom: 1rem;
+}
+
+.jiovanni-form-row {
+  display: grid;
+  grid-template-columns: 1fr 1fr;
+  gap: 1rem;
+}
+
+@media (max-width: 640px) {
+  .jiovanni-form-row {
+    grid-template-columns: 1fr;
+  }
+}
+
+.jiovanni-form-group {
+  margin-bottom: 1rem;
+}
+
+.jiovanni-label {
+  display: block;
+  font-size: 0.85rem;
+  font-weight: 600;
+  color: #334155;
+  margin-bottom: 0.4rem;
+}
+
+.jiovanni-input,
+.jiovanni-select {
+  width: 100%;
+  padding: 0.6rem 0.75rem;
+  font-size: 0.95rem;
+  border: 1px solid #cbd5e1;
+  border-radius: 6px;
+  background-color: #ffffff;
+  color: #0f172a;
+}
+
+.jiovanni-input:focus,
+.jiovanni-select:focus {
+  outline: none;
+  border-color: #cc0000;
+  box-shadow: 0 0 0 3px rgba(204, 0, 0, 0.1);
+}
+
+.jiovanni-pill-group {
+  display: flex;
+  flex-wrap: wrap;
+  gap: 0.5rem;
+}
+
+.jiovanni-pill-label {
+  display: inline-flex;
+  align-items: center;
+  gap: 0.4rem;
+  border: 1px solid #cbd5e1;
+  padding: 0.45rem 0.85rem;
+  border-radius: 6px;
+  font-size: 0.85rem;
+  font-weight: 500;
+  cursor: pointer;
+  background: #ffffff;
+}
+
+.jiovanni-pill-label:hover {
+  background: #f8fafc;
+}
+
+.jiovanni-checkbox-grid {
+  display: grid;
+  grid-template-columns: 1fr 1fr;
+  gap: 0.5rem;
+}
+
+@media (max-width: 640px) {
+  .jiovanni-checkbox-grid {
+    grid-template-columns: 1fr;
+  }
+}
+
+.jiovanni-check-label {
+  display: flex;
+  align-items: center;
+  gap: 0.5rem;
+  font-size: 0.85rem;
+  color: #334155;
+  cursor: pointer;
+}
+
+.jiovanni-buffer-check {
+  margin-top: 0.5rem;
+  padding-top: 0.5rem;
+}
+
+.jiovanni-submit-btn {
+  width: 100%;
+  background-color: #cc0000;
+  color: #ffffff;
+  border: none;
+  padding: 0.85rem;
+  font-size: 1rem;
+  font-weight: 600;
+  border-radius: 6px;
+  cursor: pointer;
+  transition: background 0.15s ease-in-out;
+}
+
+.jiovanni-submit-btn:hover {
+  background-color: #a80000;
+}
+
+.jiovanni-results-card {
+  margin-top: 2rem;
+  background: #ffffff;
+  border: 1px solid #e2e8f0;
+  border-radius: 8px;
+  padding: 1.5rem;
+}
+
+.jiovanni-results-header {
+  display: flex;
+  justify-content: space-between;
+  align-items: center;
+  margin-bottom: 1rem;
+}
+
+.jiovanni-results-title {
+  font-size: 1.25rem;
+  font-weight: 700;
+  color: #0f172a;
+}
+
+.jiovanni-badge {
+  background: #dcfce7;
+  color: #15803d;
+  font-size: 0.75rem;
+  font-weight: 700;
+  padding: 0.25rem 0.5rem;
+  border-radius: 4px;
+}
+
+.jiovanni-schedule-grid {
+  display: grid;
+  grid-template-columns: repeat(auto-fit, minmax(140px, 1fr));
+  gap: 0.75rem;
+}
+
+.jiovanni-day-card {
+  background: #f8fafc;
+  border: 1px solid #e2e8f0;
+  border-radius: 6px;
+  padding: 0.75rem;
+}
+
+.jiovanni-day-title {
+  font-size: 0.85rem;
+  font-weight: 700;
+  color: #0f172a;
+  margin-bottom: 0.5rem;
+  text-align: center;
+  border-bottom: 1px solid #e2e8f0;
+  padding-bottom: 0.25rem;
+}
+
+.jiovanni-block {
+  font-size: 0.75rem;
+  padding: 0.4rem;
+  border-radius: 4px;
+  margin-bottom: 0.4rem;
+  line-height: 1.3;
+}
+
+.jiovanni-block-class {
+  background: #e2e8f0;
+  color: #475569;
+}
+
+.jiovanni-block-study {
+  background: #fee2e2;
+  color: #991b1b;
+  border-left: 3px solid #cc0000;
+}
