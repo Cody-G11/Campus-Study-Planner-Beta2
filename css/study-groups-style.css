@@ -58,6 +58,8 @@
             padding: 10px 8px;
             font-size: 13px;
             cursor: pointer;
+            color: inherit;
+            text-decoration: none;
             border-bottom: 1px solid #eeeeee;
         }
 
@@ -242,6 +244,9 @@
             padding: 8px 20px;
             font-size: 18px;
             cursor: pointer;
+            width: fit-content;
+            color: inherit;
+            text-decoration: none;
         }
 
         .home-button:hover {
